@@ -1,10 +1,13 @@
 import uuid
 
+import pytest
 from playwright.sync_api import sync_playwright, expect
 
 STORAGE_STATE_PATH = "browser_state.json"
 
 
+@pytest.mark.courses
+@pytest.mark.regression
 def test_empty_courses_list():
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=False)
